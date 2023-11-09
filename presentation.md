@@ -22,15 +22,19 @@ Welcome to a quick run through of SSH.
 ### What is SSH?
 
 - SSH, or Secure Shell, is a cryptographic network protocol used for secure communication over an unsecured network. It provides a secure channel over an insecure network, such as the internet.
-
+<br>
 
 - It provides secure remote login and other network services, protecting data from interception and eavesdropping.
+<br>
 
 - SSH is a software based approach to network security.
+<br>
 
 - Comes built into with all Linux Distributions, *nix based OS and other Unix variants.
+<br>
 
 - SSH is a replacement for Telnet,rogin, rsh, rep, ftp, etc.
+<br>
 
 - SSH is typically used to log into a remote machine and execute commands, but it also supports tunneling, forwarding TCP ports and X11 connections; it can transfer files using the associated SSH file transfer (SFTP) or secure copy (SCP) protocols.
 
@@ -58,11 +62,12 @@ It is not a complete security solution
 ## SSH History
 
 - SSH was developed in 1995 by Tatu Ylönen, a researcher at Helsinki University of Technology.
-
+<br>
 - SSH was designed as a replacement for Telnet and other insecure remote shells, which send information, notably passwords, in plaintext, rendering them susceptible to interception and disclosure using packet analysis.
+<br>
 
 - The IETF formed a group called SECSH, to standardize the protocol.
-
+<br>
 - In 2006,IETF SECSH group released SSH-2 as the Internet standard, replacing SSH-1.
 
 ---
@@ -88,7 +93,7 @@ It is not a complete security solution
 ### Authentication
 
 - Supports password-based authentication and public-key cryptography.
-- Two-factor authentication can be implemented for added security.  
+- Two-factor authentication can be implemented for added security.
 
 ### Remote Access
 
@@ -135,27 +140,37 @@ It is not a complete security solution
 
 ## Some Tools that we use to access SSH Services
 
-- **PuTTY:** A free and open-source terminal emulator, serial console and network file transfer application. It supports several network protocols, including SCP, SSH, Telnet, rlogin, and raw socket connection. It can also connect to a serial port.
+### **PuTTY:**
+
+A free and open-source terminal emulator, serial console and network file transfer application. It supports several network protocols, including SCP, SSH, Telnet, rlogin, and raw socket connection. It can also connect to a serial port.
 <br>
 <br>
 
 
-- **MobaXterm:** A proprietary terminal emulator for Microsoft Windows. It is enhanced for use on Unix-like systems with a built-in X11 server, and tabbed SSH client functions. MobaXterm is portable and light application.
+### **MobaXterm:**
+
+A proprietary terminal emulator for Microsoft Windows. It is enhanced for use on Unix-like systems with a built-in X11 server, and tabbed SSH client functions. MobaXterm is portable and light application.
 <br>
 <br>
 
 
-- **OpenSSH:** A free and open-source implementation of the Secure Shell protocol. It encrypts all traffic to eliminate eavesdropping, connection hijacking, and other attacks. It also provides secure tunneling capabilities and several authentication methods, and supports all SSH protocol versions.
+### **OpenSSH:**
+
+A free and open-source implementation of the Secure Shell protocol. It encrypts all traffic to eliminate eavesdropping, connection hijacking, and other attacks. It also provides secure tunneling capabilities and several authentication methods, and supports all SSH protocol versions.
 <br>
 <br>
 
 
-- **WinSCP:** A free and open-source SFTP, SCP, FTPS and FTP client for Microsoft Windows. Its main function is secure file transfer between a local and a remote computer. Beyond this, WinSCP offers basic file manager and file synchronization functionality.
+### **WinSCP:**
+
+A free and open-source SFTP, SCP, FTPS and FTP client for Microsoft Windows. Its main function is secure file transfer between a local and a remote computer. Beyond this, WinSCP offers basic file manager and file synchronization functionality.
 <br>
 <br>
 
 
-- **Termius:** A cross-platform SSH client that works on Windows, Mac, iOS, and Android. It supports SSH, Mosh, and Telnet, and features tabbed sessions, a host favoriting feature, and a command palette for common actions.
+### **Termius:**
+
+A cross-platform SSH client that works on Windows, Mac, iOS, and Android. It supports SSH, Mosh, and Telnet, and features tabbed sessions, a host favoriting feature, and a command palette for common actions.
 <br>
 <br>
 
@@ -164,7 +179,9 @@ It is not a complete security solution
 ## Setting Up Dev Environments
 
 We have a few options for our development servers where we run different versions of Lime.
+To connect to each of these servers
 
 1. Dev1
+To connect to
 2. Dev2
 3. Dev3
