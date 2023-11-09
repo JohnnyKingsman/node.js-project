@@ -22,16 +22,15 @@ Welcome to a quick run through of SSH.
 ### What is SSH?
 
 - SSH, or Secure Shell, is a cryptographic network protocol used for secure communication over an unsecured network. It provides a secure channel over an insecure network, such as the internet.
-<br>
+
 
 - It provides secure remote login and other network services, protecting data from interception and eavesdropping.
-<br>
 
 - SSH is a software based approach to network security.
 
 - Comes built into with all Linux Distributions, *nix based OS and other Unix variants.
 
-- SSH is a replacement for Telnet,rogin, rsh, rep, ftp, etc.
+- SSH is a replacement for Telnet,rogin, rsh, rep, ftp, etc.  
 
 - SSH is typically used to log into a remote machine and execute commands, but it also supports tunneling, forwarding TCP ports and X11 connections; it can transfer files using the associated SSH file transfer (SFTP) or secure copy (SCP) protocols.
 
