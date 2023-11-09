@@ -1,4 +1,7 @@
-# Secure Shell (SSH) Presentation
+Secure Shell (SSH) Presentation
+==================================
+
+Welcome to a quick run through of SSH. Let's see what else we can do!
 
 ---
 
@@ -80,4 +83,3 @@ SSH, or Secure Shell, is a cryptographic network protocol used for secure commun
 
    ```bash
    ssh username@remote-server
-
