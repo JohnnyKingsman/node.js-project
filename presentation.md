@@ -22,8 +22,10 @@ Welcome to a quick run through of SSH.
 ### What is SSH?
 
 - SSH, or Secure Shell, is a cryptographic network protocol used for secure communication over an unsecured network. It provides a secure channel over an insecure network, such as the internet.
+<br>
 
 - It provides secure remote login and other network services, protecting data from interception and eavesdropping.
+<br>
 
 - SSH is a software based approach to network security.
 
