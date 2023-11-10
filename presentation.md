@@ -37,6 +37,8 @@ Welcome to a quick run through of SSH.
 <br>
 
 - SSH is typically used to log into a remote machine and execute commands, but it also supports tunneling, forwarding TCP ports and X11 connections; it can transfer files using the associated SSH file transfer (SFTP) or secure copy (SCP) protocols.
+<br>
+<br>
 
 ### Key Features
 
@@ -63,11 +65,13 @@ It is not a complete security solution
 
 - SSH was developed in 1995 by Tatu Ylönen, a researcher at Helsinki University of Technology.
 <br>
+
 - SSH was designed as a replacement for Telnet and other insecure remote shells, which send information, notably passwords, in plaintext, rendering them susceptible to interception and disclosure using packet analysis.
 <br>
 
 - The IETF formed a group called SECSH, to standardize the protocol.
 <br>
+
 - In 2006,IETF SECSH group released SSH-2 as the Internet standard, replacing SSH-1.
 
 ---
@@ -88,16 +92,24 @@ It is not a complete security solution
 ### Security
 
 - Encrypts data to prevent unauthorized access.
+
+
 - Protects against eavesdropping and man-in-the-middle attacks.
 
 ### Authentication
 
 - Supports password-based authentication and public-key cryptography.
+
+
 - Two-factor authentication can be implemented for added security.
+
+
 
 ### Remote Access
 
 - Allows users to access remote servers securely.
+
+
 - Widely used for remote administration of servers.
 
 ---
@@ -114,15 +126,31 @@ It is not a complete security solution
 
 - SSH keys consist of a public key and a private key.
 <br>
+
 - The public key is stored on the server, and the private key is kept by the user.
 <br>
+
 - Authentication occurs without the need for a password.
 <br>
+
+- The private key is never shared and is used to decrypt data encrypted by the public key.
+<br>
+
+- The public key can be shared freely without compromising security.
+<br>
+
+- The identity file is the file that contains the private key. It's often in a format as .pem (Privacy Enhanced Mail) or .ppk (PuTTY Private Key).
+<br>
+
+- When connecting to a server using SSH, you specify the identity file with the -i option.
 
 ### Benefits
 
 - Increased security: No need to transmit passwords over the network.
+<br>
+
 - Convenient and efficient for automated processes.
+<br>
 
 ---
 
@@ -134,7 +162,9 @@ It is not a complete security solution
    - Connect to a remote server securely.
 
    ```bash
-   ssh username@remote-server
+   ssh -i "path/to/identity_file.pem" username@remote-server
+   ```
+   <br>
 
 ---
 
@@ -182,6 +212,21 @@ We have a few options for our development servers where we run different version
 To connect to each of these servers
 
 1. Dev1
-To connect to
+To connect to dev1 using SSH, we use the command:
+
+   ```bash
+   ssh -i "limekeys.pem" ec2-user@limedev1.linear6.com
+   ```
+
 2. Dev2
+To connect to dev2 using SSH, we use the command:
+
+   ```bash
+   ssh -i "limekeys.pem" ec2-user@limedev2.linear6.com
+   ```
+
 3. Dev3
+To connect to dev3 using SSH, we use the command:
+
+   ```bash
+   ssh -i "limekeys.pem" ec2-user@limedev3.linear6.com
