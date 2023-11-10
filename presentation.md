@@ -54,9 +54,11 @@ Welcome to a quick run through of SSH.
 
 ### What SSH is NOT
 
-SSH is not a true shell like csh, ksh, sh etc.
+- SSH is not a true shell like csh, ksh, sh etc.
 
-It is not a complete security solution
+- It is not a complete security solution.
+
+- It won't prevent the system from being hacked.
 
 
 ---
@@ -79,36 +81,40 @@ It is not a complete security solution
 ## 2. How SSH Works
 
 1. **Encryption:** SSH encrypts data during transmission to prevent eavesdropping.
+<br>
 
 2. **Authentication:** Users must authenticate using a username and password or SSH keys.
+<br>
 
 3. **Secure Connection:** SSH creates a secure connection between the client and server.
+<br>
 
-
----
 
 ## 3. Advantages of SSH
 
 ### Security
 
 - Encrypts data to prevent unauthorized access.
-
+<br>
 
 - Protects against eavesdropping and man-in-the-middle attacks.
+<br>
+<br>
 
 ### Authentication
 
 - Supports password-based authentication and public-key cryptography.
-
+<br>
 
 - Two-factor authentication can be implemented for added security.
-
+<br>
+<br>
 
 
 ### Remote Access
 
 - Allows users to access remote servers securely.
-
+<br>
 
 - Widely used for remote administration of servers.
 
@@ -143,6 +149,8 @@ It is not a complete security solution
 <br>
 
 - When connecting to a server using SSH, you specify the identity file with the -i option.
+<br>
+<br>
 
 ### Benefits
 
@@ -151,6 +159,49 @@ It is not a complete security solution
 
 - Convenient and efficient for automated processes.
 <br>
+
+---
+
+## Some Other SSH Tools
+
+### **SCP:**
+<br>
+
+- Secure Contain Protect (scp) is a command-line utility that allows you to securely copy files and directories between two locations. With scp, you can copy a file or directory from:
+<br>
+
+   1. Your local system to a remote system:
+      ```bash
+      scp /path/to/local/file username@remote-host:/path/to/remote/file
+      ```
+      <br>
+      <br>
+
+   2. A remote system to your local system:
+      ```bash
+      scp username@remote-host:/path/to/remote/file /path/to/local/file
+      ```
+      <br>
+      <br>
+
+   3. A remote system to another remote system:
+      ```bash
+      scp username@remote-host:/path/to/remote/file username@remote-host:/path/to/remote/file
+      ```
+
+---
+
+### **SFTP:**
+<br>
+<br>
+
+- Secure File Transfer Protocol (SFTP) is a secure version of FTP that transfers files over the SSH protocol. SFTP is similar to FTP, but unlike FTP, the entire session is encrypted, meaning no passwords are sent in cleartext form, and is thus much less vulnerable to third-party interception.
+<br>
+
+- SFTP can be done using a command-line utility or an SFTP client such as Mobaxterm, WinSCP, FileZilla, etc.
+
+
+
 
 ---
 
@@ -165,6 +216,26 @@ It is not a complete security solution
    ssh -i "path/to/identity_file.pem" username@remote-server
    ```
    <br>
+   <br>
+
+2. **File Transfer:**
+   - Transfer files securely between a local and remote server.
+
+   ```bash
+   scp -i "path/to/identity_file.pem" local-file username@remote-server:remote-file
+   ```
+   <br>
+   <br>
+
+3. **Port Forwarding:**
+   - Forward a local port to a remote server.
+
+   ```bash
+   ssh -i "path/to/identity_file.pem" -L local-port:remote-server:remote-port username@remote-server
+   ```
+   <br>
+   <br>
+
 
 ---
 
@@ -230,3 +301,9 @@ To connect to dev3 using SSH, we use the command:
 
    ```bash
    ssh -i "limekeys.pem" ec2-user@limedev3.linear6.com
+   ```
+---
+
+## Activity Time!!!
+
+Let's do some basic SSH commands to get familiar with the tool.
