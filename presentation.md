@@ -12,7 +12,8 @@ Welcome to a quick run through of SSH.
 3. Advantages of SSH
 4. SSH Key Authentication
 5. SSH Use Cases and Commands
-6. Comparison with Telnet
+
+6. Setting Up Dev Environments
 7. Conclusion
 
 ---
@@ -127,6 +128,9 @@ Welcome to a quick run through of SSH.
 - Password-based authentication
 - Public-key cryptography
 - Two-factor authentication
+<br>
+<br>
+<br>
 
 ### How SSH Keys Work
 
@@ -162,7 +166,41 @@ Welcome to a quick run through of SSH.
 
 ---
 
-## Some Other SSH Tools
+## Config File in SSH
+<br>
+- The SSH config file is a configuration file for the SSH client. It is located at ~/.ssh/config. It is also possible to have a system-wide config file at /etc/ssh/ssh_config. The SSH config file can be used to specify options for specific hosts or global options.
+
+<br>
+
+- The SSH config file is also read by other programs such as scp, sftp, and rsync. The config file is organized into stanzas (sections) that contain keys and values in the format of `Key Value`. The keys are case-insensitive. The values are case-sensitive.
+<br>
+
+- The SSH config file is read every time you initiate an SSH connection. This means that you can add or change options at any time and they will be applied to new SSH connections.
+
+### Example of a Config File
+
+```bash
+   Host excess
+        User ec2-user
+        HostName excess.lime.linear6.com
+        IdentityFile ~/.ssh/limekeys.pem
+```
+
+**Host:**: The Host keyword is followed by the name of the host. This can be a hostname or an IP address. The host name can contain wildcards such as * and ?. The host name can also be an alias that is defined in the /etc/hosts file. This is also the name that is used to connect to the host using the ssh command. Eg: `ssh excess`
+<br>
+
+**User:**: The User keyword is followed by the username that you want to use when connecting to the host. This is optional. If not specified, the username that you are currently logged in as will be used.
+<br>
+
+**HostName:**: The HostName keyword is followed by the hostname or IP address of the host. This is optional. If not specified, the host name that was specified on the Host line will be used.
+<br>
+
+**IdentityFile:**: The IdentityFile keyword is followed by the path to the identity file. This is optional. If not specified, the default identity file will be used. The default identity file is ~/.ssh/id_rsa for RSA keys and ~/.ssh/id_dsa for DSA keys.
+<br>
+
+---
+
+## Other Uses of SSH
 
 ### **SCP:**
 <br>
@@ -199,18 +237,23 @@ Welcome to a quick run through of SSH.
 <br>
 
 - SFTP can be done using a command-line utility or an SFTP client such as Mobaxterm, WinSCP, FileZilla, etc.
+<br>
 
-
+- SFTP is not FTP run over SSH, but rather a new protocol designed from the ground up by the IETF SECSH working group.
 
 
 ---
 
 ## 5. SSH Use Cases and Commands
+<br>
+<br>
 
 ### Common SSH Use Cases
+<br>
 
 1. **Remote Server Access:**
    - Connect to a remote server securely.
+   <br>
 
    ```bash
    ssh -i "path/to/identity_file.pem" username@remote-server
@@ -220,15 +263,17 @@ Welcome to a quick run through of SSH.
 
 2. **File Transfer:**
    - Transfer files securely between a local and remote server.
+   <br>
 
    ```bash
-   scp -i "path/to/identity_file.pem" local-file username@remote-server:remote-file
+   scp -i "path/to/identity_file.pem" "path/to/local/file" username@remote-server:"path/to/remote/file"
    ```
    <br>
    <br>
 
 3. **Port Forwarding:**
    - Forward a local port to a remote server.
+   <br>
 
    ```bash
    ssh -i "path/to/identity_file.pem" -L local-port:remote-server:remote-port username@remote-server
@@ -277,7 +322,9 @@ A cross-platform SSH client that works on Windows, Mac, iOS, and Android. It sup
 
 ---
 
-## Setting Up Dev Environments
+## 6. Setting Up Dev Environments
+<br>
+<br>
 
 We have a few options for our development servers where we run different versions of Lime.
 To connect to each of these servers
@@ -304,6 +351,6 @@ To connect to dev3 using SSH, we use the command:
    ```
 ---
 
-## Activity Time!!!
+## 7. Activity Time!!!
 
 Let's do some basic SSH commands to get familiar with the tool.
