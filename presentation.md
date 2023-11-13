@@ -18,6 +18,7 @@ Welcome to a quick run through of SSH.
 ---
 
 ## 1. Introduction to SSH
+==========================
 
 ### What is SSH?
 
@@ -43,14 +44,21 @@ Welcome to a quick run through of SSH.
 ### Key Features
 
 - Encrypted communication
+<br>
 
 - Authentication
+<br>
 
 - Secure file transfer (SCP and SFTP)
+<br>
 
 - Tunneling for secure network services
+<br>
 
----
+
+<br>
+<br>
+<br>
 
 ### What SSH is NOT
 
@@ -63,7 +71,7 @@ Welcome to a quick run through of SSH.
 
 ---
 
-## SSH History
+## History of SSH
 
 - SSH was developed in 1995 by Tatu Ylönen, a researcher at Helsinki University of Technology.
 <br>
@@ -79,6 +87,7 @@ Welcome to a quick run through of SSH.
 ---
 
 ## 2. How SSH Works
+====================
 
 1. **Encryption:** SSH encrypts data during transmission to prevent eavesdropping.
 <br>
@@ -91,6 +100,7 @@ Welcome to a quick run through of SSH.
 
 
 ## 3. Advantages of SSH
+========================
 
 ### Security
 
@@ -121,6 +131,7 @@ Welcome to a quick run through of SSH.
 ---
 
 ## 4. SSH Key Authentication
+=============================
 
 ### SSH Authentication Methods
 
@@ -248,6 +259,7 @@ Welcome to a quick run through of SSH.
 ---
 
 ## 5. SSH Use Cases and Commands
+=================================
 <br>
 <br>
 
@@ -359,6 +371,7 @@ A cross-platform SSH client that works on Windows, Mac, iOS, and Android. It sup
 ---
 
 ## 6. Setting Up Dev Environments
+==================================
 <br>
 <br>
 
