@@ -12,7 +12,6 @@ Welcome to a quick run through of SSH.
 3. Advantages of SSH
 4. SSH Key Authentication
 5. SSH Use Cases and Commands
-
 6. Setting Up Dev Environments
 7. Conclusion
 
@@ -185,17 +184,21 @@ Welcome to a quick run through of SSH.
         HostName excess.lime.linear6.com
         IdentityFile ~/.ssh/limekeys.pem
 ```
-
-**Host:**: The Host keyword is followed by the name of the host. This can be a hostname or an IP address. The host name can contain wildcards such as * and ?. The host name can also be an alias that is defined in the /etc/hosts file. This is also the name that is used to connect to the host using the ssh command. Eg: `ssh excess`
 <br>
 
-**User:**: The User keyword is followed by the username that you want to use when connecting to the host. This is optional. If not specified, the username that you are currently logged in as will be used.
+**Host:** The Host keyword is followed by the name of the host. This can be a hostname or an IP address. The host name can contain wildcards such as * and ?. The host name can also be an alias that is defined in the /etc/hosts file. This is also the name that is used to connect to the host using the ssh command. Eg: `ssh excess`
+<br>
 <br>
 
-**HostName:**: The HostName keyword is followed by the hostname or IP address of the host. This is optional. If not specified, the host name that was specified on the Host line will be used.
+**User:** The User keyword is followed by the username that you want to use when connecting to the host. This is optional. If not specified, the username that you are currently logged in as will be used.
+<br>
 <br>
 
-**IdentityFile:**: The IdentityFile keyword is followed by the path to the identity file. This is optional. If not specified, the default identity file will be used. The default identity file is ~/.ssh/id_rsa for RSA keys and ~/.ssh/id_dsa for DSA keys.
+**HostName:** The HostName keyword is followed by the hostname or IP address of the host. This is optional. If not specified, the host name that was specified on the Host line will be used.
+<br>
+<br>
+
+**IdentityFile:** The IdentityFile keyword is followed by the path to the identity file. This is optional. If not specified, the default identity file will be used. The default identity file is ~/.ssh/id_rsa for RSA keys and ~/.ssh/id_dsa for DSA keys.
 <br>
 
 ---
@@ -252,14 +255,47 @@ Welcome to a quick run through of SSH.
 <br>
 
 1. **Remote Server Access:**
-   - Connect to a remote server securely.
+   - There are 3 ways to access a remote server using SSH.
+   <br>
+   <br>
+      1. Using a hostname:
+      ```bash
+      ssh -t  username@remote-server-hostname
+      ```
+      <br>
+      Eg: `ssh -t ec2-user@limedev.com`
+      <br>
+      <br>
+
+      2. Using an IP address:
+      ```bash
+      ssh -t username@remote-server-ip-address
+      ```
+      <br>
+      Eg: `ssh -t ec2-user@123.155.33.22`
+      <br>
+      <br>
+
+      3. Using the config file setup:
+      ```bash
+      ssh hostname
+      ```
+      <br>
+      Eg: `ssh dev1`
+
+
+   <br>
+   <br>
+   <br>
+   - The `-t` option forces pseudo-terminal allocation. This can be used to execute arbitrary screen-based programs on a remote machine, which can be very useful, e.g. when implementing menu services. Multiple -t options force tty allocation, even if ssh has no local tty.
    <br>
 
-   ```bash
-   ssh -i "path/to/identity_file.pem" username@remote-server
-   ```
-   <br>
-   <br>
+   - The `-i` option is used to specify the identity file (private key) to use for authentication. This option is directly passed to ssh.
+   Eg: `ssh -i "limekeys.pem" ec2-user@limedev2.lineas6.com`
+
+
+---
+
 
 2. **File Transfer:**
    - Transfer files securely between a local and remote server.
@@ -276,7 +312,7 @@ Welcome to a quick run through of SSH.
    <br>
 
    ```bash
-   ssh -i "path/to/identity_file.pem" -L local-port:remote-server:remote-port username@remote-server
+   ssh -L local-port:remote-server:remote-port username@remote-server
    ```
    <br>
    <br>
@@ -332,9 +368,9 @@ To connect to each of these servers
 1. Dev1
 To connect to dev1 using SSH, we use the command:
 
+   - Using the hostname:
    ```bash
    ssh -i "limekeys.pem" ec2-user@limedev1.linear6.com
-   ```
 
 2. Dev2
 To connect to dev2 using SSH, we use the command:
