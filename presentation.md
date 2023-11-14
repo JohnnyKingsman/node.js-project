@@ -3,6 +3,14 @@ Secure Shell (SSH) Presentation
 
 Welcome to a quick run through of SSH.
 
+
+
+### To join the session try out:
+
+   ```bash
+   ssh -t slides.tseivan.com join SSH-sesh
+   ```
+
 ---
 
 ## Agenda
@@ -76,8 +84,15 @@ Welcome to a quick run through of SSH.
 - SSH was developed in 1995 by Tatu Ylönen, a researcher at Helsinki University of Technology.
 <br>
 
+- In July 1995, Ylönen released SSH1 publicly for free download and use.
+<br>
+
+- In December 1995, Ylönen founded SSH Communications Security to market and develop SSH.
+
 - SSH was designed as a replacement for Telnet and other insecure remote shells, which send information, notably passwords, in plaintext, rendering them susceptible to interception and disclosure using packet analysis.
 <br>
+
+- In 1996, SSH2 was developed to address security issues in SSH1.
 
 - The IETF formed a group called SECSH, to standardize the protocol.
 <br>
@@ -176,25 +191,43 @@ Welcome to a quick run through of SSH.
 
 ---
 
+## SSH Directory Structure
+
+- The SSH directory is located at ~/.ssh. The tilde (~) represents the user's home directory. The SSH directory contains the following files:
+<br>
+
+`id_rsa:` The private key that is used to authenticate the user. This file should never be shared with anyone.
+<br>
+<br>
+
+`id_rsa.pub:` The public key that is used to authenticate the user. This file can be shared freely without compromising security.
+<br>
+<br>
+
+`known_hosts:` This file contains the public keys of all known hosts. When connecting to a host, the public key of the host is compared to the keys in this file to verify the host's identity.
+<br>
+
+`identity_file:` This file contains the private key that is used to authenticate the user. This file is specified with the -i option when connecting to a host. There could be any number of identity files in the SSH directory.
+
+---
+
 ## Config File in SSH
 <br>
 - The SSH config file is a configuration file for the SSH client. It is located at ~/.ssh/config. It is also possible to have a system-wide config file at /etc/ssh/ssh_config. The SSH config file can be used to specify options for specific hosts or global options.
 
 <br>
 
-- The SSH config file is also read by other programs such as scp, sftp, and rsync. The config file is organized into stanzas (sections) that contain keys and values in the format of `Key Value`. The keys are case-insensitive. The values are case-sensitive.
+- The SSH config file is also read by other programs such as scp, sftp, and rsync. The config file is organized into stanzas (sections) that contain keys and values in the format of `Key : Value`. The keys are case-insensitive. The values are case-sensitive.
 <br>
 
 - The SSH config file is read every time you initiate an SSH connection. This means that you can add or change options at any time and they will be applied to new SSH connections.
 
 ### Example of a Config File
 
-```bash
-   Host excess
-        User ec2-user
-        HostName excess.lime.linear6.com
-        IdentityFile ~/.ssh/limekeys.pem
-```
+   `Host excess`
+        `User ec2-user`
+        `HostName excess.lime.linear6.com`
+        `IdentityFile ~/.ssh/limekeys.pem`
 <br>
 
 **Host:** The Host keyword is followed by the name of the host. This can be a hostname or an IP address. The host name can contain wildcards such as * and ?. The host name can also be an alias that is defined in the /etc/hosts file. This is also the name that is used to connect to the host using the ssh command. Eg: `ssh excess`
@@ -384,6 +417,9 @@ To connect to dev1 using SSH, we use the command:
    - Using the hostname:
    ```bash
    ssh -i "limekeys.pem" ec2-user@limedev1.linear6.com
+   ```
+<br>
+<br>
 
 2. Dev2
 To connect to dev2 using SSH, we use the command:
@@ -391,6 +427,8 @@ To connect to dev2 using SSH, we use the command:
    ```bash
    ssh -i "limekeys.pem" ec2-user@limedev2.linear6.com
    ```
+<br>
+<br>
 
 3. Dev3
 To connect to dev3 using SSH, we use the command:
@@ -402,4 +440,15 @@ To connect to dev3 using SSH, we use the command:
 
 ## 7. Activity Time!!!
 
-Let's do some basic SSH commands to get familiar with the tool.
+- A few other commands to look up on:
+
+   - `ssh-keygen`: To generate SSH keys
+   <br>
+   <br>
+   - `ssh-copy-id`: To copy SSH keys to a remote server
+   <br>
+   <br>
+   - `ssh-agent`: The agent which holds private keys in memory
+   <br>
+   <br>
+   - `ssh-add`: To add SSH keys to the SSH agent
